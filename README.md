@@ -4,7 +4,7 @@ Another Youtube Player!
 
 Ever found your self having multiple tabs on your browser where most of them are **Youtube** music videos ? I do.
 
-**Yays** allow you to collect & save your favorite youtube music links in one place
+**Yays** allow you to collect & save your favorite youtube music links in one place, this way you will gain more space
 
 ----------
 
