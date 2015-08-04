@@ -9,7 +9,7 @@ Ever found your self having multiple tabs on your browser where most of them are
 ----------
 
 
-Screenshoot
+Screenshot
 -------------
 
 ![enter image description here](https://raw.githubusercontent.com/Bahlaouane-Hamza/Yays/master/screenshot.png?Dsfdsf)
@@ -40,7 +40,7 @@ Once you are ready, start by cloning the repository
 ``` Bash
 $ git clone https://github.com/Bahlaouane-Hamza/Yays
 ```
- Install NodeJs dependecies
+ Install NodeJs dependencies
 ``` Bash
 $ npm install
 ```
@@ -58,7 +58,7 @@ $ npm start
 ``` Bash
 $ npm build
 ```
-Make sure to adapt package.json to your needs by changing the targeted platforme & architecure
+Make sure to adapt package.json to your needs by changing the targeted platforme & architecture
 
 
 
