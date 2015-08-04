@@ -37,7 +37,7 @@ Or you can drag & drop the link in your collection.
 
 Once you are ready, start by cloning the repository
 ``` Bash
-$ git clone https://github.com/Bahlaouane-Hamza/Yays
+$ git clone https://github.com/Bahlaouane-Hamza/Yays.git
 ```
  Install NodeJs dependencies
 ``` Bash
