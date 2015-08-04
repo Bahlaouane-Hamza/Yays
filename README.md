@@ -65,7 +65,7 @@ Make sure to adapt package.json to your needs by changing the targeted platforme
 
 > **Note:** Work in progress!
 
-== TODO
+#### TODO
 
 * Preference panel
 * Release with check updates feature 
