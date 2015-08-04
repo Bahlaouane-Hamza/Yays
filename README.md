@@ -14,7 +14,6 @@ Screenshot
 
 ![enter image description here](https://raw.githubusercontent.com/Bahlaouane-Hamza/Yays/master/screenshot.png?Dsfdsf)
 
-StackEdit stores your documents in your browser, which means all your documents are automatically saved locally and are accessible **offline!**
 
 > **Note:**
 
