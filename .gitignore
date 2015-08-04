@@ -1,0 +1,12 @@
+node_modules
+dist
+vendor
+
+tests
+YoutubePlayer-darwin-x64
+
+.idea
+
+.DS_Store
+
+

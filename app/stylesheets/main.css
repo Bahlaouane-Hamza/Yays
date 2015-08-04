@@ -1,0 +1,127 @@
+body{
+  background: url('../images/blur_bg.jpg');
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+nav{
+  background: rgba(34,38,46, 0.4);
+}
+
+nav .input-field label {
+  top: 16px;
+}
+
+
+.progress {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content{
+  margin-top: 10px;
+}
+
+.collection{
+  margin-left: 10px;
+  margin-right: 10px;
+  border: none;
+  height: 252px;
+  overflow-y: auto;
+}
+
+.spacer{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.collection .collection-item.avatar .secondary-content {
+  top: 19px;
+  font-size: 21px;
+}
+
+.collection .collection-item {
+  background: rgba(34,38,46, 0.4);
+  border: none;
+  cursor: pointer;
+  color: #eafaf9;
+  font-weight: bold;
+}
+
+.collection .collection-item.avatar{
+  min-height: 63px;
+}
+
+.collection .collection-item.avatar .title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.collection .collection-item:hover {
+  background-color: rgba(34, 38, 46, 0.63);
+}
+
+.collection .collection-item.active:hover {
+  background-color: rgba(38, 166, 154, 0.74);
+}
+
+
+.secondary-content {
+  color: #FFFFFF;
+}
+
+#player{
+  height: 250px;
+  margin: 10px;
+  background-color: #000;
+}
+
+iframe {
+  position: relative;
+  top: -5px;
+}
+
+div.starter{
+  background: #2C2C2C url("../images/player-bg.png") no-repeat left top;
+  position: relative;
+  height: 250px;
+  width:100%;
+}
+
+h5.starter {
+  color: white;
+  position: absolute;
+  text-align: center;
+  font-size: 20px;
+  top: -11px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-color: rgba(16, 16, 16, 0.74);
+  padding: 106px 10px 10px 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.truncate {
+  width: 93%;
+}
+
+.search {
+   width: 82%;
+ }
+
+.box{
+  background: rgba(34,38,46, 0.4);
+  -webkit-box-shadow: -5px -5px 10px rgba(0,0,0,0.15);
+  box-shadow: -5px -5px 10px rgba(0,0,0,0.25);
+  margin-left: 10px;
+  margin-right: 10px;
+
+}

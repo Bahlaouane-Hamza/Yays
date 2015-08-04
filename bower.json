@@ -1,0 +1,40 @@
+{
+  "name": "youtube-music-player",
+  "version": "0.0.1",
+  "description": "Collect & save your favorite youtube music links in one place",
+  "keywords": [
+    "Youtube",
+    "Electron",
+    "Music",
+    "Stream"
+  ],
+  "authors": [
+    "Bahlaouane Hamza <bahlaouane.hamza1@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.3",
+    "angular": "~1.4.3",
+    "angular-material": "~0.10.0",
+    "materialize": "~0.97.0",
+    "font-awesome": "~4.3.0",
+    "hammerjs": "~2.0.4"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test"
+  ]
+}

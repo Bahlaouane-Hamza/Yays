@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Yt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Youtube Music Player</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../vendor/materialize/dist/css/materialize.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/main.css"/>
+</head>
+<body ng-cloak id="AppCtrl" data-ng-controller="AppCtrl">
+
+<div class="progress" ng-show="loading">
+  <div class="indeterminate"></div>
+</div>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" style="width:230px" class="dropdown-content">
+  <li><a href="#about" class="modal-trigger">About</a></li>
+  <li><a href="#preferences" class="modal-trigger">Preferences</a></li>
+  <li><a href="#!">Check updates</a></li>
+  <li class="divider"></li>
+  <li><a href="#!" ng-click="quitApp()">Quit</a></li>
+</ul>
+
+
+
+<nav>
+  <div class="nav-wrapper">
+    <form class="left search">
+      <div class="input-field">
+        <input id="search" type="search" ng-model="search" required>
+        <label for="search"><i class="material-icons">search</i></label>
+      </div>
+    </form>
+    <ul class="right">
+      <li><a href="#!" class="dropdown-button waves-effect waves-light" data-beloworigin="true" data-gutter="0" data-constrainwidth="false" data-hover="true" data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content">
+  <div id="player">
+
+
+    <youtube width="100%" height="250" video-id="{{youtube.videoId}}"></youtube>
+
+  </div>
+
+
+<!--  <div class="spacer">
+  <h5><i class="material-icons left">play_circle_outline</i> [Lyrics+Vietsub] Ride Out - Kid Ink, Tyga, Wale, YG, Rich Homie Quan</h5>
+  </div>-->
+
+
+
+  <ul class="collection" id="collection">
+    <li class="collection-item avatar" data-ng-repeat="video in upcoming | filter: search" ng-class="(video.id == youtube.videoId) ? 'active' : ''">
+      <img ng-src="http://img.youtube.com/vi/{{video.id}}/default.jpg" alt="" class="circle" data-ng-click="launch(video.id, video.title)">
+      <span class="title truncate" data-ng-click="launch(video.id, video.title)">{{video.title}}</span>
+      <a href="#!" class="secondary-content" data-ng-click="delete(video.id)"><i class="fa fa-trash-o"></i></a>
+    </li>
+
+
+  </ul>
+
+</div>
+
+
+
+<div class="fixed-action-btn" style="bottom: 9px; right: 9px;">
+  <a class="btn-floating red modal-trigger" href="#new-item-modal">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="about" class="modal">
+  <div class="modal-content">
+    <h4>About</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+<div id="preferences" class="modal">
+  <div class="modal-content">
+    <h4>Preference</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+            <label for="disabled">Disabled</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              Off
+              <input type="checkbox">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+
+<div id="new-item-modal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Add an item to your collection</h4>
+    <blockquote>
+      Drag & drop your youtube link inside your collection or select the link and hit cmd+c & cmd+g
+    </blockquote>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Close</a>
+  </div>
+</div>
+
+<!--<script src="http://www.youtube.com/iframe_api"></script>-->
+<script src="../vendor/jquery/dist/jquery.min.js"></script>
+<script>
+  try {
+    $ = jQuery = module.exports;
+    // If you want module.exports to be empty, uncomment:
+    // module.exports = {};
+  } catch(e) {}
+</script>
+<script src="../vendor/hammerjs/hammer.min.js"></script>
+<script>
+  try {
+    Hammer = module.exports;
+    // If you want module.exports to be empty, uncomment:
+    // module.exports = {};
+  } catch(e) {}
+</script>
+  <script src="../vendor/angular/angular.min.js"></script>
+  <script src="../vendor/materialize/bin/materialize.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
