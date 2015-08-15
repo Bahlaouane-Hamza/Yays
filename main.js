@@ -133,7 +133,8 @@ app.on('ready', function() {
     }
 
     // Open the devtools.
-    mainWindow.openDevTools();
+    // TODO: depending on which environment
+    // mainWindow.openDevTools();
 
     // and load the index.html of the app.
     mainWindow.loadUrl('http://127.0.0.1:3000');
