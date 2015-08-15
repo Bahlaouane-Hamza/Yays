@@ -1,7 +1,12 @@
+html{
+  background-color: #35447b;
+}
+
 body{
-  background: url('../images/blur_bg.jpg');
+  background: #35447b url('../images/blur_bg.jpg');
   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
+  display: none;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -114,7 +119,7 @@ h5.starter {
 }
 
 .search {
-   width: 82%;
+   width: 70%;
  }
 
 .box{
@@ -124,4 +129,22 @@ h5.starter {
   margin-left: 10px;
   margin-right: 10px;
 
+}
+
+h3.app-name {
+  text-align: center;
+}
+
+p.app-verison {
+  text-align: center;
+  font-size: 11px;
+}
+
+p.app-github {
+  text-align: center;
+}
+
+p.app-copyright {
+  text-align: center;
+  font-size: 11px;
 }

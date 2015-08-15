@@ -5,6 +5,40 @@ jQuery(document).ready(function($){
   $('input').blur();
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
+
+  /**
+   * Drag & drop
+   */
+  var drop = document.querySelector('#collection');
+
+  function cancel(e) {
+    if (e.preventDefault) e.preventDefault(); // required by FF + Safari
+    e.dataTransfer.dropEffect = 'copy'; // tells the browser what drop effect is allowed here
+    return false; // required by IE
+  }
+
+  // Tells the browser that we *can* drop on this target
+  addEvent(drop, 'dragover', cancel);
+  addEvent(drop, 'dragenter', cancel);
+
+  addEvent(drop, 'drop', function (e) {
+    if (e.preventDefault) e.preventDefault(); // stops the browser from redirecting off to the text.
+
+    angular.element(document.getElementById('AppCtrl')).scope().callAddURL(e.dataTransfer.getData("text/uri-list"));
+
+    return false;
+
+  });
+
+  /**
+   * Load body
+   */
+  $("body").fadeIn(700);
+
+});
+
+jQuery(document).load(function($){
+  $('input').blur();
 });
 
 var addEvent = (function () {

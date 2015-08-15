@@ -26,6 +26,8 @@ To quickly add a new link to your collection you can select the link in your bro
 
 Or you can drag & drop the link in your collection.
 
+Or just use the add red button at the bottom.
+
 
 #### <i class="icon-cog"></i> Installation
 
@@ -39,13 +41,9 @@ Once you are ready, start by cloning the repository
 ``` Bash
 $ git clone https://github.com/Bahlaouane-Hamza/Yays.git
 ```
- Install NodeJs dependencies
+ Install NodeJs & Bower dependencies
 ``` Bash
-$ npm install
-```
-And then run
-``` Bash
-$ bower install
+$ npm install && bower install
 ```
 
 **Run the app**
@@ -57,8 +55,7 @@ $ npm start
 ``` Bash
 $ npm build
 ```
-Make sure to adapt package.json to your needs by changing the targeted platforme & architecture
-
+Make sure to adapt package.json to your needs by changing the targeted platform & architecture
 
 
 ----------

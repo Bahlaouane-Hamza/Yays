@@ -120,7 +120,7 @@ app.on('ready', function() {
       height: 594,
       resizable : false,
       frame: false,
-      'always-on-top': true,
+      'always-on-top': false,
       'web-preferences': {
         'web-security': true,
         'plugins': true ,
@@ -133,7 +133,7 @@ app.on('ready', function() {
     }
 
     // Open the devtools.
-    //mainWindow.openDevTools();
+    mainWindow.openDevTools();
 
     // and load the index.html of the app.
     mainWindow.loadUrl('http://127.0.0.1:3000');

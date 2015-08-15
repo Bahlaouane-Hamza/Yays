@@ -9,7 +9,7 @@
     "node-notifier": "^4.2.3"
   },
   "scripts": {
-    "build": "electron-packager . YoutubePlayer --platform=darwin --arch=x64 --version=0.29.2 --ignore=node_modules/electron --icon=app/images/Icon.icns",
+    "build": "electron-packager . Yays --platform=darwin --arch=x64 --version=0.29.2 --ignore=node_modules/electron --icon=app/images/Icon.icns",
     "start": "electron ."
   },
   "devDependencies": {

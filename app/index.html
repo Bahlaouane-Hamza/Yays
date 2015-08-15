@@ -20,8 +20,8 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" style="width:230px" class="dropdown-content">
   <li><a href="#about" class="modal-trigger">About</a></li>
-  <li><a href="#preferences" class="modal-trigger">Preferences</a></li>
-  <li><a href="#!">Check updates</a></li>
+  <!--<li><a href="#preferences" class="modal-trigger">Preferences</a></li>-->
+  <!--<li><a href="#!">Check updates</a></li>-->
   <li class="divider"></li>
   <li><a href="#!" ng-click="quitApp()">Quit</a></li>
 </ul>
@@ -37,7 +37,7 @@
       </div>
     </form>
     <ul class="right">
-      <li><a href="#!" class="dropdown-button waves-effect waves-light" data-beloworigin="true" data-gutter="0" data-constrainwidth="false" data-hover="true" data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
+      <li><a href="#!" class="dropdown-button waves-effect waves-light" data-beloworigin="true" data-gutter="0" data-constrainwidth="false" data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
     </ul>
   </div>
 </nav>
@@ -50,10 +50,6 @@
 
   </div>
 
-
-<!--  <div class="spacer">
-  <h5><i class="material-icons left">play_circle_outline</i> [Lyrics+Vietsub] Ride Out - Kid Ink, Tyga, Wale, YG, Rich Homie Quan</h5>
-  </div>-->
 
 
 
@@ -81,11 +77,13 @@
 <!-- Modal Structure -->
 <div id="about" class="modal">
   <div class="modal-content">
-    <h4>About</h4>
-    <p>A bunch of text</p>
+    <h3 class="app-name">Yays!</h3>
+    <p class="app-verison">Version 1.0.0</p>
+    <p class="app-github">Source code available on <a href="https://github.com/Bahlaouane-Hamza/Yays">Github</a></p>
+    <p class="app-copyright">Copyright &copy; 2015 Hamza Bahlaouane</p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
 </div>
 
@@ -146,33 +144,35 @@
 
 
 <div id="new-item-modal" class="modal bottom-sheet">
-  <div class="modal-content">
-    <h4>Add an item to your collection</h4>
-    <blockquote>
-      Drag & drop your youtube link inside your collection or select the link and hit cmd+c & cmd+g
-    </blockquote>
+  <div class="modal-content" style="  padding-bottom: 0;">
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row" style="margin-bottom: 0;">
+          <div class="input-field">
+            <input ng-model="m_url" placeholder="e.g. https://www.youtube.com/watch?v=_CL6n0FJZpk" id="youtube_link" type="text" class="validate">
+            <label for="youtube_link">Youtube URL</label>
+          </div>
+        </div>
+      </form>
+    </div>
 
   </div>
   <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Close</a>
+    <a href="#!" ng-click="addAndClose()" class="modal-action waves-effect waves-green btn">Add</a>
   </div>
 </div>
 
-<!--<script src="http://www.youtube.com/iframe_api"></script>-->
 <script src="../vendor/jquery/dist/jquery.min.js"></script>
 <script>
   try {
     $ = jQuery = module.exports;
-    // If you want module.exports to be empty, uncomment:
-    // module.exports = {};
   } catch(e) {}
 </script>
 <script src="../vendor/hammerjs/hammer.min.js"></script>
 <script>
   try {
     Hammer = module.exports;
-    // If you want module.exports to be empty, uncomment:
-    // module.exports = {};
   } catch(e) {}
 </script>
   <script src="../vendor/angular/angular.min.js"></script>

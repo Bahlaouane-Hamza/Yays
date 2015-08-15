@@ -293,30 +293,16 @@ app.controller('AppCtrl', function ($scope, $http, $log, VideosService) {
     });
   };
 
-  /**
-   * Drag & drop
-   */
-  var drop = document.querySelector('#collection');
-
-  function cancel(e) {
-    if (e.preventDefault) e.preventDefault(); // required by FF + Safari
-    e.dataTransfer.dropEffect = 'copy'; // tells the browser what drop effect is allowed here
-    return false; // required by IE
-  }
-
-  // Tells the browser that we *can* drop on this target
-  addEvent(drop, 'dragover', cancel);
-  addEvent(drop, 'dragenter', cancel);
-
-  addEvent(drop, 'drop', function (e) {
-    if (e.preventDefault) e.preventDefault(); // stops the browser from redirecting off to the text.
-
-    $scope.url = e.dataTransfer.getData("text/uri-list");
+  $scope.m_url = "";
+  $scope.addAndClose = function(){
+    console.log("addAndClose");
+    $scope.url = $scope.m_url;
+    $('#new-item-modal').closeModal();
     $scope.addURL();
+    $scope.m_url = "";
+  };
 
-    return false;
 
-  });
 
   $scope.callAddURL = function(url){
     console.log("callAddURL");
