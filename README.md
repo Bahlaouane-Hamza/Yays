@@ -20,6 +20,10 @@ Screenshot
 
 > - Currently, only **OS X** is supported 
 
+#### <i class="icon-cog"></i> Installation
+
+To install it download the [latest release](https://github.com/Bahlaouane-Hamza/Yays/releases/latest) for your platform (OS X).
+
 #### <i class="icon-file"></i> Add a new link
 
 To quickly add a new link to your collection you can select the link in your browser, hit <kbd>Cmd+C</kbd> & then <kbd>Cmd+G</kbd>.
@@ -29,7 +33,7 @@ Or you can drag & drop the link in your collection.
 Or just use the add red button at the bottom.
 
 
-#### <i class="icon-cog"></i> Installation
+#### <i class="icon-cog"></i> Development
 
 > **Requirement:**
 
