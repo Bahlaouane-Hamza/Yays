@@ -42,8 +42,8 @@ var mainWindow = null;
 app.on('ready', function() {
 
   // Register a 'ctrl+x' shortcut listener.
-  var ret = globalShortcut.register('cmd+g', function() {
-    console.log('cmd+g is pressed');
+  var ret = globalShortcut.register(process.platform === 'win32' ? 'ctrl+g' : 'cmd+g', function() {
+    console.log('cmd+g/ctrl+g is pressed');
     console.log(clipboard.readText('selection'));
     var url = clipboard.readText('selection');
     mainWindow.webContents.executeJavaScript("addNewURL('"+url+"');");
@@ -83,7 +83,6 @@ app.on('ready', function() {
     // bounds may not be populated on all OSes
     if (bounds.x === 0 && bounds.y === 0) {
       // default to bottom on windows
-      if (process.platform === 'win32') bounds.y = size.height - 594;
       bounds.x = size.width + size.x - (340 / 2); // default to right
       cachedBounds = bounds;
     }
@@ -95,7 +94,7 @@ app.on('ready', function() {
 
   function showWindow (trayPos) {
     var x =  Math.floor(trayPos.x - ((340 / 2) || 200) + (trayPos.width / 2));
-    var y = trayPos.y;
+    var y = process.platform === 'win32' ? trayPos.y - 600 : trayPos.y;
     if (!mainWindow) {
       createWindow(true, x, y)
     }
