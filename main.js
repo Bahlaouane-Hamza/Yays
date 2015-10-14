@@ -36,6 +36,11 @@ require('crash-reporter').start();
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
 
+app.on('window-all-closed', function() {
+  if(process.platform !== 'darwin') {
+    app.quit();
+  }
+});
 
 // This method will be called when Electron has done everything
 // initialization and ready for creating browser windows.
