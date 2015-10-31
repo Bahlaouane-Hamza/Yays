@@ -18,5 +18,9 @@
   "devDependencies": {
     "electron-packager": "^5.0.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bahlaouane-Hamza/Yays"
+  }
 }
