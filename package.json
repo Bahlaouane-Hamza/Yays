@@ -13,9 +13,10 @@
   "scripts": {
     "build-osx": "electron-packager . $npm_package_productName --overwrite --prune --platform=darwin --arch=x64 --version=$npm_package_electronVersion --icon=app/images/Icon.icns",
     "build-windows": "electron-packager . %npm_package_productName% --overwrite --prune --platform=win32 --arch=ia32 --version=%npm_package_electronVersion% --icon=app/images/Icon.ico --version-string.ProductName=%npm_package_productName% --version-string.ProductVersion=%npm_package_electronVersion%",
-    "start": "electron ."
+    "start": "electron main.js"
   },
   "devDependencies": {
+    "electron-prebuilt": "^0.36.0",
     "electron-packager": "^5.0.1"
   },
   "license": "MIT",
