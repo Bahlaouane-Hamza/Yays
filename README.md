@@ -38,7 +38,6 @@ Or just use the add red button at the bottom.
 > **Requirement:**
 
 > - You will need NodeJs installed with NPM from [nodejs.org](https://nodejs.org/)
-> - Get Electron from [electron.atom.io](http://electron.atom.io/)
 > - One last thing, [Bower.io](http://bower.io/)
 
 Once you are ready, start by cloning the repository

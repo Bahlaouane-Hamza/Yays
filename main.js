@@ -70,7 +70,7 @@ app.on('ready', function() {
   appTry = new Tray(iconPath);
   appTry.setToolTip("Youtube Music Player");
   appTry
-    .on('clicked', clicked);
+    .on('click', clicked);
 
   createWindow(false);
 
