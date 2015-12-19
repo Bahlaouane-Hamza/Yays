@@ -25,7 +25,8 @@ var db = new locallydb(path.join(app.getPath('appData'), 'yt-database-links'));
 // load the collection (file) in './mydb/monsters', will be created if doesn't exist
 global.collection = db.collection('links');
 
-global.alertIcon = path.join(__dirname, 'app/images/alert.png');
+var iconNotify = (process.platform === 'win32') ? 'alertLarge.png' : 'alert.png';
+global.alertIcon = path.join(__dirname, 'app/images/' + iconNotify);
 
 global.app = app;
 
