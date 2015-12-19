@@ -61,8 +61,7 @@ app.on('ready', function() {
 
   if (app.dock) app.dock.hide();
 
-  var iconPath = path.join(__dirname, '/app/images/Icon.png');
-  if (!fs.existsSync(iconPath)) iconPath = path.join(__dirname, '/app/imagesIconTemplate.png'); // default cat icon
+  var iconPath = path.join(__dirname, '/app/images/IconTemplate.png'); // default cat icon
 
   var electronScreen = require('screen');
   var cachedBounds; // cachedBounds are needed for double-clicked event
@@ -129,7 +128,8 @@ app.on('ready', function() {
         'web-security': true,
         'plugins': true ,
         'overlay-fullscreen-video': true
-      }
+      },
+      icon: __dirname + '/app/images/IconTemplate.png'
     });
 
     if (show) {
