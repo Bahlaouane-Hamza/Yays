@@ -128,7 +128,8 @@ app.on('ready', function() {
         'web-security': true,
         'plugins': true ,
         'overlay-fullscreen-video': true
-      }
+      },
+      icon: __dirname + '/app/images/IconTemplate.png'
     });
 
     if (show) {
