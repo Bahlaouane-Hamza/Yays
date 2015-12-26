@@ -2,8 +2,8 @@
   "name": "youtube-music-player",
   "productName": "Yays",
   "description": "Collect & save your favorite youtube music links in one place",
-  "version": "0.0.1",
-  "electronVersion": "0.29.2",
+  "version": "1.0.0",
+  "electronVersion": "0.36.0",
   "main": "main.js",
   "dependencies": {
     "express": "^4.13.1",
@@ -13,7 +13,7 @@
   "scripts": {
     "build-osx": "electron-packager . $npm_package_productName --overwrite --prune --platform=darwin --arch=x64 --version=$npm_package_electronVersion --icon=app/images/Icon.icns",
     "build-windows": "electron-packager . %npm_package_productName% --overwrite --prune --platform=win32 --arch=ia32 --version=%npm_package_electronVersion% --icon=app/images/Icon.ico --version-string.ProductName=%npm_package_productName% --version-string.ProductVersion=%npm_package_electronVersion%",
-    "start": "electron main.js"
+    "start": "electron ."
   },
   "devDependencies": {
     "electron-prebuilt": "^0.36.0",
