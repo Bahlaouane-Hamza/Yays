@@ -45,7 +45,6 @@ function onYouTubePlayerReady(playerId) {
 }
 
 
-
 // Drag & Drop add URL
 function addNewURL(url){
   angular.element(document.getElementById('AppCtrl')).scope().callAddURL(url);
@@ -138,8 +137,6 @@ app.service('VideosService', ['$window', '$rootScope', '$log', '$filter', '$sce'
 
   var upcoming = db.items;
 
-
-
   this.launchPlayer = function (id, title) {
 
     if(typeof id === "undefined" || !id)
@@ -158,9 +155,22 @@ app.service('VideosService', ['$window', '$rootScope', '$log', '$filter', '$sce'
   this.launchNext = function(){
     var current = $filter('filter')(upcoming, function (d) {return d.id === youtube.videoId;})[0];
     var index = upcoming.indexOf(current);
-    if(index >= 0 && index < upcoming.length - 1)
-      this.launchPlayer(upcoming[index+1].id, upcoming[index+1].title);
-    else
+    if(index >= 0 && index < upcoming.length - 1) {
+      this.launchPlayer(upcoming[index + 1].id, upcoming[index + 1].title);
+    }else
+    {
+      this.launchPlayer(upcoming[0].id, upcoming[0].title);
+    }
+  };
+
+
+
+  this.launchPrevious = function(){
+    var current = $filter('filter')(upcoming, function (d) {return d.id === youtube.videoId;})[0];
+    var index = upcoming.indexOf(current);
+    if(index != 0) {
+      this.launchPlayer(upcoming[index - 1].id, upcoming[index - 1].title);
+    }else
     {
       this.launchPlayer(upcoming[0].id, upcoming[0].title);
     }
@@ -178,6 +188,16 @@ app.service('VideosService', ['$window', '$rootScope', '$log', '$filter', '$sce'
     }
   };
 
+
+
+  this.clearQueue = function() {
+    db.clear();
+    upcoming = [];
+
+    return upcoming;
+  };
+
+
   this.queueVideo = function (id, title) {
 
     db.insert({
@@ -192,6 +212,15 @@ app.service('VideosService', ['$window', '$rootScope', '$log', '$filter', '$sce'
     return upcoming;
   };
 
+
+  this.pauseVideo = function() {
+    if(player.getPlayerState() == 1) {
+      player.pauseVideo();
+    }else if(player.getPlayerState() == 2) {
+      player.playVideo();
+    }
+  };
+
   this.YouTubeGetID = function(url){
     var ID = '';
     url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
@@ -204,7 +233,6 @@ app.service('VideosService', ['$window', '$rootScope', '$log', '$filter', '$sce'
     }
     return ID;
   };
-
 
   this.getYoutube = function () {
     return youtube;
@@ -224,14 +252,33 @@ app.controller('AppCtrl', function ($scope, $http, $log, VideosService) {
 
   init();
 
+  $scope.ipcRenderer = require('electron').ipcRenderer;
+  $scope.ipcRenderer.on('playpause', playPause);
+  $scope.ipcRenderer.on('nexttrack', nextTrack);
+  $scope.ipcRenderer.on('previoustrack', previousTrack);
+
   $scope.loading = false;
+  var alertIcon =  atom.remote.getGlobal("alertIcon");
 
   $scope.stopLoader = function(){
     $scope.loading = false;
     $scope.$apply();
   };
 
-  var alertIcon =  atom.remote.getGlobal("alertIcon");
+  function playPause() {
+    VideosService.pauseVideo();
+    $scope.$apply();
+  }
+
+  function nextTrack() {
+    VideosService.launchNext();
+    $scope.$apply();
+  }
+
+  function previousTrack() {
+    VideosService.launchPrevious();
+    $scope.$apply();
+  }
 
   function init() {
     $scope.youtube = VideosService.getYoutube();
@@ -245,7 +292,6 @@ app.controller('AppCtrl', function ($scope, $http, $log, VideosService) {
   };
 
   $scope.launchNext = function(){
-    console.log("$scope.launchNext");
     VideosService.launchNext();
     $scope.$apply();
   };
@@ -254,13 +300,16 @@ app.controller('AppCtrl', function ($scope, $http, $log, VideosService) {
     VideosService.deleteVideo(id);
   };
 
+  $scope.clearQueue = function() {
+    $scope.upcoming = VideosService.clearQueue();
+  };
+
   $scope.url = "";
 
   $scope.toggleForm = {
     "search" : false,
     "add": false
   };
-
 
   $scope.loggleSearch = function(){
     $scope.toggleForm.search = ! $scope.toggleForm.search;
@@ -301,7 +350,6 @@ app.controller('AppCtrl', function ($scope, $http, $log, VideosService) {
     $scope.addURL();
     $scope.m_url = "";
   };
-
 
 
   $scope.callAddURL = function(url){

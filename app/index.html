@@ -20,9 +20,11 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" style="width:230px" class="dropdown-content">
   <li><a href="#about" class="modal-trigger">About</a></li>
+
   <!--<li><a href="#preferences" class="modal-trigger">Preferences</a></li>-->
   <!--<li><a href="#!">Check updates</a></li>-->
   <li class="divider"></li>
+  <li><a href="#!" ng-click="clearQueue()">Clear queue</a></li>
   <li><a href="#!" ng-click="quitApp()">Quit</a></li>
 </ul>
 
@@ -33,7 +35,7 @@
     <form class="left search">
       <div class="input-field">
         <input id="search" type="search" ng-model="search" required>
-        <label for="search"><i class="material-icons">search</i></label>
+        <label for="search" class="searchicon"><i class="material-icons">search</i></label>
       </div>
     </form>
     <ul class="right">
