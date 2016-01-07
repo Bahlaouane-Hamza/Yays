@@ -48,7 +48,7 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
 
     // Register a 'ctrl+x' shortcut listener.
-    var ret = globalShortcut.register(process.platform === 'win32' ? 'ctrl+g' : 'cmd+g', function () {
+    var ret = globalShortcut.register(process.platform === 'win32' || 'linux' ? 'ctrl+g' : 'cmd+g', function () {
         console.log('cmd+g/ctrl+g is pressed');
         console.log(clipboard.readText('selection'));
         var url = clipboard.readText('selection');
