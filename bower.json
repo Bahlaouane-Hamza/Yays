@@ -16,8 +16,8 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.3",
-    "angular": "~1.4.3",
-    "angular-material": "~0.10.0",
+    "angular": "^1.4.3",
+    "angular-material": "^0.10.0",
     "materialize": "~0.97.0",
     "font-awesome": "~4.3.0",
     "hammerjs": "~2.0.4"

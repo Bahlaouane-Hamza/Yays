@@ -17,10 +17,6 @@ nav{
   background: rgba(34,38,46, 0.4);
 }
 
-nav .input-field label {
-  top: 16px;
-}
-
 
 .progress {
   margin: 0;
